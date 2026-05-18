@@ -16,7 +16,7 @@ A tabela contém:
 | HTHG | Half Time Home Team Goals | Gols do time mandante no primeiro tempo |
 | HTAG | Half Time Away Team Goals | Gols do time visitante no primeiro tempo |
 | HTR | Half Time Result (H = Home Win, D = Draw, A = Away Win) | Resultado do primeiro tempo (H = vitória do mandante, D = empate, A = vitória do visitante) |
-| Referee | Match referee | Árbitro da partida |
+| Referee | Match referee | Árbitro da partida (informação não disponível para Serie A) |
 | HS | Home Team Shots | Finalizações do time mandante |
 | AS | Away Team Shots | Finalizações do time visitante |
 | HST | Home Team Shots on Target | Finalizações no alvo do time mandante |
