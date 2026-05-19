@@ -16,8 +16,6 @@ data_2425 <- data_2425 %>%
     -"Referee"
     )
 
-View(data_2425)
-
 # Calculando total de cartões amarelos por time
 # ---------------------------------------------
 
@@ -48,8 +46,6 @@ yellow_cards <- yellow_cards %>%
     yellow_cards = sum(yellow_cards)
   ) %>%
   arrange(desc(yellow_cards))
-
-View(yellow_cards)
 
 # Calculando total de cartões vermelhos por time
 # ----------------------------------------------
@@ -82,8 +78,6 @@ red_cards <- red_cards %>%
   ) %>%
   arrange(desc(red_cards))
 
-View(red_cards)
-
 # Calculando total de gols marcados por time
 # ----------------------------------------------
 
@@ -114,8 +108,6 @@ total_goals <- total_goals %>%
     goals = sum(goals)
   ) %>%
   arrange(desc(goals))
-
-View(total_goals)
 
 # Calculando total de faltas cometidas por time
 # ---------------------------------------------
@@ -148,8 +140,6 @@ total_fouls <- total_fouls %>%
   ) %>%
   arrange(desc(fouls))
 
-View(total_fouls)
-
 # Calculando total de escanteios por time
 # ---------------------------------------------
 
@@ -180,8 +170,6 @@ total_corners <- total_corners %>%
     corners = sum(corners)
   ) %>%
   arrange(desc(corners))
-
-View(total_corners)
 
 # Calculando total de chutes por time
 # ---------------------------------------------
@@ -214,8 +202,6 @@ total_shots <- total_shots %>%
   ) %>%
   arrange(desc(shots))
 
-View(total_shots)
-
 # Calculando total de chutes no alvo por time
 # ---------------------------------------------
 
@@ -246,8 +232,6 @@ total_shots_ontarget <- total_shots_ontarget %>%
     shots_ontarget = sum(shots_ontarget)
   ) %>%
   arrange(desc(shots_ontarget))
-
-View(total_shots_ontarget)
 
 # Calculando total de vitórias por time
 # -------------------------------------
@@ -280,8 +264,6 @@ total_wins <- total_wins %>%
   ) %>%
   arrange(desc(wins))
 
-View(total_wins)
-
 # Calculando total de derrotas por time
 # -------------------------------------
 
@@ -313,8 +295,6 @@ total_losses <- total_losses %>%
   ) %>%
   arrange(desc(losses))
 
-View(total_losses)
-
 # Calculando total de empates por time
 # -------------------------------------
 
@@ -345,8 +325,6 @@ total_draws <- total_draws %>%
     draws = n()
   ) %>%
   arrange(desc(draws))
-
-View(total_draws)
 
 # =======================================
 
