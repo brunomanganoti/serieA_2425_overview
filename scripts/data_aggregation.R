@@ -150,6 +150,105 @@ total_fouls <- total_fouls %>%
 
 View(total_fouls)
 
+# Calculando total de escanteios por time
+# ---------------------------------------------
+
+# Total de escanteios dos times mandantes
+home_corners <- data_2425 %>%
+  select(
+    team = HomeTeam,
+    corners = HC
+  )
+
+# Total de escanteios dos times visitantes
+away_corners <- data_2425 %>%
+  select(
+    team = AwayTeam,
+    corners = AC
+  )
+
+# Empilhando linhas
+total_corners <- bind_rows(
+  home_corners,
+  away_corners
+)
+
+# Criando agregação do total de escanteios
+total_corners <- total_corners %>%
+  group_by(team) %>%
+  summarise(
+    corners = sum(corners)
+  ) %>%
+  arrange(desc(corners))
+
+View(total_corners)
+
+# Calculando total de chutes por time
+# ---------------------------------------------
+
+# Total de chutes dos times mandantes
+home_shots <- data_2425 %>%
+  select(
+    team = HomeTeam,
+    shots = HS
+  )
+
+# Total de chutes dos times visitantes
+away_shots <- data_2425 %>%
+  select(
+    team = AwayTeam,
+    shots = AS
+  )
+
+# Empilhando linhas
+total_shots <- bind_rows(
+  home_shots,
+  away_shots
+)
+
+# Criando agregação do total de chutes 
+total_shots <- total_shots %>%
+  group_by(team) %>%
+  summarise(
+    shots = sum(shots)
+  ) %>%
+  arrange(desc(shots))
+
+View(total_shots)
+
+# Calculando total de chutes no alvo por time
+# ---------------------------------------------
+
+# Total de chutes no alvo dos times mandantes
+home_shots_ontarget <- data_2425 %>%
+  select(
+    team = HomeTeam,
+    shots_ontarget = HST
+  )
+
+# Total de chutes no alvo dos times visitantes
+away_shots_ontarget <- data_2425 %>%
+  select(
+    team = AwayTeam,
+    shots_ontarget = AST
+  )
+
+# Empilhando linhas
+total_shots_ontarget <- bind_rows(
+  home_shots_ontarget,
+  away_shots_ontarget
+)
+
+# Criando agregação do total de chutes no alvo 
+total_shots_ontarget <- total_shots_ontarget %>%
+  group_by(team) %>%
+  summarise(
+    shots_ontarget = sum(shots_ontarget)
+  ) %>%
+  arrange(desc(shots_ontarget))
+
+View(total_shots_ontarget)
+
 # Calculando total de vitórias por time
 # -------------------------------------
 
@@ -248,3 +347,26 @@ total_draws <- total_draws %>%
   arrange(desc(draws))
 
 View(total_draws)
+
+# =======================================
+
+# Juntando as agregações para o dataset final
+season_stats <- total_wins %>%
+  left_join(total_losses, by = "team") %>%
+  left_join(total_goals, by = "team") %>%
+  left_join(red_cards, by = "team") %>%
+  left_join(yellow_cards, by = "team") %>%
+  left_join(total_draws, by = "team") %>%
+  left_join(total_fouls, by = "team") %>%
+  left_join(total_shots, by = "team") %>%
+  left_join(total_shots_ontarget, by = "team") %>%
+  left_join(total_corners, by = "team")
+
+# Criando coluna de pontuação
+season_stats <- season_stats %>%
+  mutate(
+    points = ((wins * 3) + draws)
+  ) %>%
+  arrange(desc(points))
+
+View(season_stats)
