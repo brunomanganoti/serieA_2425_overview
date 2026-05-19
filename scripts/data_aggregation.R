@@ -43,7 +43,7 @@ yellow_cards <- bind_rows(
 yellow_cards <- yellow_cards %>%
   group_by(team) %>%
   summarise(
-    yellow_cards = sum(yellow_cards)
+    yellow_cards = sum(yellow_cards, na.rm = TRUE)
   ) %>%
   arrange(desc(yellow_cards))
 
@@ -74,7 +74,7 @@ red_cards <- bind_rows(
 red_cards <- red_cards %>%
   group_by(team) %>%
   summarise(
-    red_cards = sum(red_cards)
+    red_cards = sum(red_cards, na.rm = TRUE)
   ) %>%
   arrange(desc(red_cards))
 
@@ -105,7 +105,7 @@ total_goals <- bind_rows(
 total_goals <- total_goals %>%
   group_by(team) %>%
   summarise(
-    goals = sum(goals)
+    goals = sum(goals, na.rm = TRUE)
   ) %>%
   arrange(desc(goals))
 
@@ -136,7 +136,7 @@ total_fouls <- bind_rows(
 total_fouls <- total_fouls %>%
   group_by(team) %>%
   summarise(
-    fouls = sum(fouls)
+    fouls = sum(fouls, na.rm = TRUE)
   ) %>%
   arrange(desc(fouls))
 
@@ -167,7 +167,7 @@ total_corners <- bind_rows(
 total_corners <- total_corners %>%
   group_by(team) %>%
   summarise(
-    corners = sum(corners)
+    corners = sum(corners, na.rm = TRUE)
   ) %>%
   arrange(desc(corners))
 
@@ -198,7 +198,7 @@ total_shots <- bind_rows(
 total_shots <- total_shots %>%
   group_by(team) %>%
   summarise(
-    shots = sum(shots)
+    shots = sum(shots, na.rm = TRUE)
   ) %>%
   arrange(desc(shots))
 
@@ -229,7 +229,7 @@ total_shots_ontarget <- bind_rows(
 total_shots_ontarget <- total_shots_ontarget %>%
   group_by(team) %>%
   summarise(
-    shots_ontarget = sum(shots_ontarget)
+    shots_ontarget = sum(shots_ontarget, na.rm = TRUE)
   ) %>%
   arrange(desc(shots_ontarget))
 
