@@ -87,4 +87,164 @@ View(red_cards)
 # Calculando total de gols marcados por time
 # ----------------------------------------------
 
+# Total de gols dos times mandantes
+home_goals <- data_2425 %>%
+  select(
+    team = HomeTeam,
+    goals = FTHG
+  )
 
+# Total de gols dos times visitantes
+away_goals <- data_2425 %>%
+  select(
+    team = AwayTeam,
+    goals = FTAG
+  )
+
+# Empilhando linhas
+total_goals <- bind_rows(
+  home_goals,
+  away_goals
+)
+
+# Criando agregação do total de gols marcados por time
+total_goals <- total_goals %>%
+  group_by(team) %>%
+  summarise(
+    goals = sum(goals)
+  ) %>%
+  arrange(desc(goals))
+
+View(total_goals)
+
+# Calculando total de faltas cometidas por time
+# ---------------------------------------------
+
+# Total de faltas dos times mandantes
+home_fouls <- data_2425 %>%
+  select(
+    team = HomeTeam,
+    fouls = HF
+  )
+
+# Total de faltas dos times visitantes
+away_fouls <- data_2425 %>%
+  select(
+    team = AwayTeam,
+    fouls = AF
+  )
+
+# Empilhando linhas
+total_fouls <- bind_rows(
+  home_fouls,
+  away_fouls
+)
+
+# Criando agregação do total de faltas marcadas
+total_fouls <- total_fouls %>%
+  group_by(team) %>%
+  summarise(
+    fouls = sum(fouls)
+  ) %>%
+  arrange(desc(fouls))
+
+View(total_fouls)
+
+# Calculando total de vitórias por time
+# -------------------------------------
+
+# Vitórias dos times mandantes
+home_wins <- data_2425 %>%
+  filter(FTR == "H") %>%
+  select(
+    team = HomeTeam
+  )
+
+# Vitórias dos times visitantes
+away_wins <- data_2425 %>%
+  filter(FTR == "A") %>%
+  select(
+    team = AwayTeam
+  )
+
+# Empilhando as linhas
+total_wins <- bind_rows(
+  home_wins,
+  away_wins
+)
+
+# Criando agregação de vitórias por time
+total_wins <- total_wins %>%
+  group_by(team) %>%
+  summarise(
+    wins = n()
+  ) %>%
+  arrange(desc(wins))
+
+View(total_wins)
+
+# Calculando total de derrotas por time
+# -------------------------------------
+
+# Derrotas dos times mandantes
+home_losses <- data_2425 %>%
+  filter(FTR == "A") %>%
+  select(
+    team = HomeTeam
+  )
+
+# Derrotas dos times visitantes
+away_losses <- data_2425 %>%
+  filter(FTR == "H") %>%
+  select(
+    team = AwayTeam
+  )
+
+# Empilhando as linhas
+total_losses <- bind_rows(
+  home_losses,
+  away_losses
+)
+
+# Criando agregação de derrotas por time
+total_losses <- total_losses %>%
+  group_by(team) %>%
+  summarise(
+    losses = n()
+  ) %>%
+  arrange(desc(losses))
+
+View(total_losses)
+
+# Calculando total de empates por time
+# -------------------------------------
+
+# Filtrando os resultados de empate
+total_draws <- data_2425 %>%
+  filter(FTR == "D") %>%
+  select(
+    HomeTeam,
+    AwayTeam
+  )
+
+# Juntando as colunas
+total_draws <- total_draws %>%
+  select(
+    HomeTeam,
+    AwayTeam
+  ) %>%
+  pivot_longer(
+    cols = everything(),
+    values_to = "team"
+  ) %>%
+  select(team)
+
+# Criando agregação do total de empates
+total_draws <- total_draws %>%
+  group_by(team) %>%
+  summarise(
+    draws = n()
+  ) %>%
+  arrange(desc(draws))
+
+View(total_draws)
