@@ -1,5 +1,5 @@
 # Serie A 2024/2025 - Overview
-Projeto envolvendo coleta, tratamento e análise de dados do Campeonato Italiano 2024/2025.
+Projeto envolvendo coleta, tratamento e análise de dados do Campeonato Italiano - Temporada 2024/2025.
 
 # Dados
 Os dados foram coletados do site: https://datahub.io/football/italian-serie-a
@@ -30,3 +30,4 @@ A tabela contém:
 | HR | Home Team Red Cards | Cartões vermelhos do time mandante |
 | AR | Away Team Red Cards | Cartões vermelhos do time visitante |
 
+O objetivo da análise foi transformar os dados originais que estavam orientados à partida (match level) em dados completos da temporada orientados por time (season-team level).
