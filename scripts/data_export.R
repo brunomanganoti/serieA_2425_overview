@@ -1,7 +1,7 @@
 # Script para exportação dos novos dados
 
 # Instalando pacote para escrita de arquivo .csv
-install.packages("writexl")
+#install.packages("writexl")
 library(writexl)
 
 # Exportando dados para o arquivo 'season_stats.csv'

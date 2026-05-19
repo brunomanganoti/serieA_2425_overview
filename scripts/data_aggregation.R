@@ -109,6 +109,37 @@ total_goals <- total_goals %>%
   ) %>%
   arrange(desc(goals))
 
+# Calculando total de gols sofridos por time
+# ----------------------------------------------
+
+# Total de gols sofridos pelos times mandantes
+home_goals_conceded <- data_2425 %>%
+  select(
+    team = HomeTeam,
+    goals_conceded = FTAG
+  )
+
+# Total de gols sofridos pelos times visitantes
+away_goals_conceded <- data_2425 %>%
+  select(
+    team = AwayTeam,
+    goals_conceded = FTHG
+  )
+
+# Empilhando linhas
+total_goals_conceded <- bind_rows(
+  home_goals_conceded,
+  away_goals_conceded
+)
+
+# Criando agregação do total de gols sofridos por time
+total_goals_conceded <- total_goals_conceded %>%
+  group_by(team) %>%
+  summarise(
+    goals_conceded = sum(goals_conceded, na.rm = TRUE)
+  ) %>%
+  arrange(desc(goals_conceded))
+
 # Calculando total de faltas cometidas por time
 # ---------------------------------------------
 
@@ -308,10 +339,6 @@ total_draws <- data_2425 %>%
 
 # Juntando as colunas
 total_draws <- total_draws %>%
-  select(
-    HomeTeam,
-    AwayTeam
-  ) %>%
   pivot_longer(
     cols = everything(),
     values_to = "team"
@@ -338,13 +365,18 @@ season_stats <- total_wins %>%
   left_join(total_fouls, by = "team") %>%
   left_join(total_shots, by = "team") %>%
   left_join(total_shots_ontarget, by = "team") %>%
-  left_join(total_corners, by = "team")
+  left_join(total_corners, by = "team") %>%
+  left_join(total_goals_conceded, by = "team")
 
 # Criando coluna de pontuação
 season_stats <- season_stats %>%
   mutate(
-    points = ((wins * 3) + draws)
+    points = ((wins * 3) + draws),
+    matches = wins + losses + draws,
+    goal_difference = goals - goals_conceded
   ) %>%
-  arrange(desc(points))
+  arrange(desc(points),
+          desc(goal_difference),
+          desc(wins))
 
 View(season_stats)
