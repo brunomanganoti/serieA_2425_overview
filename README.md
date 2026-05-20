@@ -30,4 +30,4 @@ A tabela contém:
 | HR | Home Team Red Cards | Cartões vermelhos do time mandante |
 | AR | Away Team Red Cards | Cartões vermelhos do time visitante |
 
-O objetivo da análise foi transformar os dados originais que estavam orientados à partida (match level) em dados completos da temporada orientados por time (season-team level).
+O objetivo da análise foi transformar os dados originais que estavam orientados à partida (match level) em dados completos da temporada orientados por temporada (season level).
