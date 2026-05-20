@@ -4,9 +4,9 @@
 #install.packages("writexl")
 library(writexl)
 
-source("D:/serieA_2425_analytics/scripts/load_data.R")
-source("D:/serieA_2425_analytics/scripts/aggregation.R")
-source("D:/serieA_2425_analytics/scripts/process_data.R")
+source("D:/serieA_2425_analytics/scripts/1_load_data.R")
+source("D:/serieA_2425_analytics/scripts/2_aggregation.R")
+source("D:/serieA_2425_analytics/scripts/3_process_data.R")
 
 # Exportando dados para o arquivo 'season_stats.csv'
 write.csv(
