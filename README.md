@@ -1,5 +1,5 @@
 # Serie A 2024/2025 - Overview
-Projeto envolvendo coleta, tratamento e análise de dados do Campeonato Italiano - Temporada 2024/2025.
+Projeto envolvendo coleta e tratamento de dados do Campeonato Italiano - Temporada 2024/2025.
 
 # Dados
 Os dados foram coletados do site: https://datahub.io/football/italian-serie-a
