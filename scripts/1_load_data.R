@@ -5,10 +5,10 @@
 library(tidyverse)
 
 # Atribuindo valores do arquivo csv para o dataframe
-data_2425 <- read.csv("data/raw/serieA-season-2425.csv")
+match_stats <- read.csv("data/raw/serieA-season-2425.csv")
 
 # Removendo colunas
-data_2425 <- data_2425 %>%
+match_stats <- match_stats %>%
   select(
     -"HTHG",
     -"HTAG",

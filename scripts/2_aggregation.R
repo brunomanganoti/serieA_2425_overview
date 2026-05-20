@@ -4,14 +4,14 @@
 # ---------------------------------------------
 
 # Cartões amarelos dos times mandantes
-home_yellow <- data_2425 %>%
+home_yellow <- match_stats %>%
   select(
     team = HomeTeam,
     yellow_cards = HY
   )
 
 # Cartões amarelos dos times visitantes
-away_yellow <- data_2425 %>%
+away_yellow <- match_stats %>%
   select(
     team = AwayTeam,
     yellow_cards = AY
@@ -35,14 +35,14 @@ yellow_cards <- yellow_cards %>%
 # ----------------------------------------------
 
 # Cartões vermelhos dos times mandantes
-home_red <- data_2425 %>%
+home_red <- match_stats %>%
   select(
     team = HomeTeam,
     red_cards = HR
   )
 
 # Cartões vermelhos dos times visitantes
-away_red <- data_2425 %>%
+away_red <- match_stats %>%
   select(
     team = AwayTeam,
     red_cards = AR
@@ -66,14 +66,14 @@ red_cards <- red_cards %>%
 # ----------------------------------------------
 
 # Total de gols dos times mandantes
-home_goals <- data_2425 %>%
+home_goals <- match_stats %>%
   select(
     team = HomeTeam,
     goals = FTHG
   )
 
 # Total de gols dos times visitantes
-away_goals <- data_2425 %>%
+away_goals <- match_stats %>%
   select(
     team = AwayTeam,
     goals = FTAG
@@ -97,14 +97,14 @@ total_goals <- total_goals %>%
 # ----------------------------------------------
 
 # Total de gols sofridos pelos times mandantes
-home_goals_conceded <- data_2425 %>%
+home_goals_conceded <- match_stats %>%
   select(
     team = HomeTeam,
     goals_conceded = FTAG
   )
 
 # Total de gols sofridos pelos times visitantes
-away_goals_conceded <- data_2425 %>%
+away_goals_conceded <- match_stats %>%
   select(
     team = AwayTeam,
     goals_conceded = FTHG
@@ -128,14 +128,14 @@ total_goals_conceded <- total_goals_conceded %>%
 # ---------------------------------------------
 
 # Total de faltas dos times mandantes
-home_fouls <- data_2425 %>%
+home_fouls <- match_stats %>%
   select(
     team = HomeTeam,
     fouls = HF
   )
 
 # Total de faltas dos times visitantes
-away_fouls <- data_2425 %>%
+away_fouls <- match_stats %>%
   select(
     team = AwayTeam,
     fouls = AF
@@ -159,14 +159,14 @@ total_fouls <- total_fouls %>%
 # ---------------------------------------------
 
 # Total de escanteios dos times mandantes
-home_corners <- data_2425 %>%
+home_corners <- match_stats %>%
   select(
     team = HomeTeam,
     corners = HC
   )
 
 # Total de escanteios dos times visitantes
-away_corners <- data_2425 %>%
+away_corners <- match_stats %>%
   select(
     team = AwayTeam,
     corners = AC
@@ -190,14 +190,14 @@ total_corners <- total_corners %>%
 # ---------------------------------------------
 
 # Total de chutes dos times mandantes
-home_shots <- data_2425 %>%
+home_shots <- match_stats %>%
   select(
     team = HomeTeam,
     shots = HS
   )
 
 # Total de chutes dos times visitantes
-away_shots <- data_2425 %>%
+away_shots <- match_stats %>%
   select(
     team = AwayTeam,
     shots = AS
@@ -221,14 +221,14 @@ total_shots <- total_shots %>%
 # ---------------------------------------------
 
 # Total de chutes no alvo dos times mandantes
-home_shots_ontarget <- data_2425 %>%
+home_shots_ontarget <- match_stats %>%
   select(
     team = HomeTeam,
     shots_ontarget = HST
   )
 
 # Total de chutes no alvo dos times visitantes
-away_shots_ontarget <- data_2425 %>%
+away_shots_ontarget <- match_stats %>%
   select(
     team = AwayTeam,
     shots_ontarget = AST
@@ -252,14 +252,14 @@ total_shots_ontarget <- total_shots_ontarget %>%
 # -------------------------------------
 
 # Vitórias dos times mandantes
-home_wins <- data_2425 %>%
+home_wins <- match_stats %>%
   filter(FTR == "H") %>%
   select(
     team = HomeTeam
   )
 
 # Vitórias dos times visitantes
-away_wins <- data_2425 %>%
+away_wins <- match_stats %>%
   filter(FTR == "A") %>%
   select(
     team = AwayTeam
@@ -283,14 +283,14 @@ total_wins <- total_wins %>%
 # -------------------------------------
 
 # Derrotas dos times mandantes
-home_losses <- data_2425 %>%
+home_losses <- match_stats %>%
   filter(FTR == "A") %>%
   select(
     team = HomeTeam
   )
 
 # Derrotas dos times visitantes
-away_losses <- data_2425 %>%
+away_losses <- match_stats %>%
   filter(FTR == "H") %>%
   select(
     team = AwayTeam
@@ -314,7 +314,7 @@ total_losses <- total_losses %>%
 # -------------------------------------
 
 # Filtrando os resultados de empate
-total_draws <- data_2425 %>%
+total_draws <- match_stats %>%
   filter(FTR == "D") %>%
   select(
     HomeTeam,
