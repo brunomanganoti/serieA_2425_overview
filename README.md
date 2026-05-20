@@ -1,5 +1,33 @@
 # Serie A 2024/2025 - Overview
-Projeto envolvendo coleta e tratamento de dados do Campeonato Italiano - Temporada 2024/2025.
+Projeto envolvendo coleta, tratamento e visualização de dados do Campeonato Italiano Serie A - Temporada 2024/2025.
+
+# Estrutura do repositório
+```bash
+serieA_2425_overview/
+│
+├── PowerBI/
+│   └── serieA_dashboard.pbix
+│   
+├── assets/
+│   └── logos/
+│
+├── data/
+│   ├── processed/
+│   │   └── season_stats.csv
+│   │
+│   └── raw/
+│       └── serieA-season-2425.csv
+│
+├── scripts/
+│   ├── 1_load_data.R
+│   ├── 2_aggregation.R
+│   ├── 3_process_data.R
+│   └── 4_export.R
+│
+├── .gitignore
+│
+└── README.md
+```
 
 # Dados
 Os dados foram coletados do site: https://datahub.io/football/italian-serie-a
@@ -36,15 +64,12 @@ O objetivo foi transformar os dados originais que estavam orientados à partida 
 
 O pipeline do projeto foi dividido em etapas para facilitar a organização e o processamento dos dados:
 
-1. **Carregamento dos dados**
-   - Leitura do arquivo CSV original contendo os dados das partidas da temporada.
+1. **Carregamento dos dados e tratamento inicial:** `scripts/1_load_data.R`
+   - Leitura do arquivo CSV original contendo os dados das partidas da temporada;
+   - Remoção de colunas não utilizadas.
 
-2. **Tratamento inicial**
-   - Remoção de colunas não utilizadas e padronização das informações relevantes.
-
-3. **Agregações**
-   - Transformação dos dados orientados por partida (*match level*) em estatísticas agregadas por time (*season level*).
-   - Incluindo o total de:
+2. **Agregações:** `scripts/2_aggregation.R`
+   - Transformação dos dados orientados por partida (*match level*) em estatísticas agregadas por time (*season level*). Incluindo o total de:
      - gols marcados;
      - gols sofridos;
      - vitórias;
@@ -54,11 +79,11 @@ O pipeline do projeto foi dividido em etapas para facilitar a organização e o 
      - finalizações;
      - faltas cometidas.
 
-4. **Criação de métricas**
+3. **Criação de métricas:** `scripts/3_process_data.R`
    - Desenvolvimento de métricas simples:
      - pontuação total;
      - saldo de gols;
      - total de partidas (igual para todos).
 
-5. **Exportação**
+4. **Exportação:** `scripts/4_export.R`
    - Geração do dataset final processado para utilização no Power BI e construção do relatório.
