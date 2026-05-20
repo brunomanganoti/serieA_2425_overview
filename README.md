@@ -31,3 +31,34 @@ A tabela contém:
 | AR | Away Team Red Cards | Cartões vermelhos do time visitante |
 
 O objetivo foi transformar os dados originais que estavam orientados à partida (match level) em dados completos orientados por temporada (season level).
+
+# Pipeline
+
+O pipeline do projeto foi dividido em etapas para facilitar a organização e o processamento dos dados:
+
+1. **Carregamento dos dados**
+   - Leitura do arquivo CSV original contendo os dados das partidas da temporada.
+
+2. **Tratamento inicial**
+   - Remoção de colunas não utilizadas e padronização das informações relevantes.
+
+3. **Agregações**
+   - Transformação dos dados orientados por partida (*match level*) em estatísticas agregadas por time (*season level*).
+   - Incluindo o total de:
+     - gols marcados;
+     - gols sofridos;
+     - vitórias;
+     - derrotas;
+     - empates;
+     - cartões amarelos/vermelhos;
+     - finalizações;
+     - faltas cometidas.
+
+4. **Criação de métricas**
+   - Desenvolvimento de métricas simples:
+     - pontuação total;
+     - saldo de gols;
+     - total de partidas (igual para todos).
+
+5. **Exportação**
+   - Geração do dataset final processado para utilização no Power BI e construção do relatório.
