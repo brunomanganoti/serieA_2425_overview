@@ -93,8 +93,6 @@ total_away_goals <- away_goals %>%
   ) %>%
   arrange(desc(away_goals))
 
-View(total_away_goals)
-
 # Empilhando linhas
 total_goals <- bind_rows(
   home_goals,

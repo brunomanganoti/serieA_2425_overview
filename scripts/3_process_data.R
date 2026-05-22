@@ -25,5 +25,3 @@ season_stats <- season_stats %>%
   arrange(desc(points),
           desc(goal_difference),
           desc(wins))
-
-View(season_stats)
