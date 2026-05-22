@@ -72,12 +72,28 @@ home_goals <- match_stats %>%
     goals = FTHG
   )
 
+total_home_goals <- home_goals %>%
+  group_by(team) %>%
+  summarise(
+    home_goals = sum(goals, na.rm = TRUE)
+  ) %>%
+  arrange(desc(home_goals))
+
 # Total de gols dos times visitantes
 away_goals <- match_stats %>%
   select(
     team = AwayTeam,
     goals = FTAG
   )
+
+total_away_goals <- away_goals %>%
+  group_by(team) %>%
+  summarise(
+    away_goals = sum(goals, na.rm = TRUE)
+  ) %>%
+  arrange(desc(away_goals))
+
+View(total_away_goals)
 
 # Empilhando linhas
 total_goals <- bind_rows(
