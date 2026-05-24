@@ -87,3 +87,8 @@ O pipeline do projeto foi dividido em etapas para facilitar a organização e o 
 
 4. **Exportação:** `scripts/4_export.R`
    - Geração do dataset final processado para utilização no Power BI e construção do relatório.
+
+# Dashboard
+
+### Página 1: Resumo da Temporada
+<img src="PowerBI/previews/pag1_resumo.jpg">
