@@ -92,3 +92,6 @@ O pipeline do projeto foi dividido em etapas para facilitar a organização e o 
 
 ### Página 1: Resumo da Temporada
 <img src="PowerBI/previews/pag1_resumo.jpg">
+
+### Página 2: Performance (Em construção)
+<img src="PowerBI/previews/pag2_performance.jpg">
