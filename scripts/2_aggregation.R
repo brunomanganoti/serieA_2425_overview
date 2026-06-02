@@ -117,12 +117,26 @@ home_goals_conceded <- match_stats %>%
     goals_conceded = FTAG
   )
 
+total_home_goals_conceded <- home_goals_conceded %>%
+  group_by(team) %>%
+  summarise(
+    home_goals_conceded = sum(goals_conceded, na.rm = TRUE)
+  ) %>%
+  arrange(desc(home_goals_conceded))
+
 # Total de gols sofridos pelos times visitantes
 away_goals_conceded <- match_stats %>%
   select(
     team = AwayTeam,
     goals_conceded = FTHG
   )
+
+total_away_goals_conceded <- away_goals_conceded %>%
+  group_by(team) %>%
+  summarise(
+    away_goals_conceded = sum(goals_conceded, na.rm = TRUE)
+  ) %>%
+  arrange(desc(away_goals_conceded))
 
 # Empilhando linhas
 total_goals_conceded <- bind_rows(

@@ -13,7 +13,9 @@ season_stats <- total_wins %>%
   left_join(total_corners, by = "team") %>%
   left_join(total_goals_conceded, by = "team") %>%
   left_join(total_home_goals, by = "team") %>%
-  left_join(total_away_goals, by = "team")
+  left_join(total_home_goals_conceded, by = "team") %>%
+  left_join(total_away_goals, by = "team") %>%
+  left_join(total_away_goals_conceded, by = "team")
 
 # Criando coluna de pontuação
 season_stats <- season_stats %>%
